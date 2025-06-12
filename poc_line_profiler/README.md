@@ -28,8 +28,50 @@ uv run kernprof -l -v -o ./output/basic_usage.lprof basic_usage/main.py
 > IMPORTANT: line_profiler requires the `-l` flag to enable line-by-line profiling,
 > and the `-v` flag to display the results in the console.
 
+We can customize Time unit. By default, `line_profile` uses microseconds (1e-6
+seconds), but by adding option `--unit 1e-3`, Time unit is set to milliseconds
+(1e-3 seconds).
+
+```bash
+uv run kernprof -l -v --unit 1e-0 -o ./output/basic_usage.lprof basic_usage/main.py
+```
+
 To see the results, you can run:
 
 ```bash
-uv run python -m line_profiler output/basic_usage.lprof
+uv run python -m line_profiler output/basic_usage.lprof --unit 1e-3
+```
+
+## Custom implementation
+
+As my custom example, I'd like to include `line_profiler` into a FastAPI
+application.
+
+Add `fastapi` as a dependency to your project:
+
+```bash
+uv add "fastapi[standard]"
+```
+
+And to run the FastAPI application with kernprof:
+
+```bash
+poetry run kernprof -l -v -o ./output/custom_usage.lprof custom_usage/main.py
+```
+
+Execute some curls to register/get some data. Profiling is implemented in
+`Inmemory.retrieve` and `Inmemory.store` methods. Both methods include delays to
+simulate slow operations.
+
+```bash
+curl --request POST http://127.0.0.1:8000/data -d '{"key": "hello", "value": "world"}' -H "Content-Type: application/json"
+curl --request GET http://127.0.0.1:8000/data -d '{"key": "hello"}' -H "Content-Type: application/json"
+curl --request POST http://127.0.0.1:8000/data -d '{"key": "slow_hello", "value": "world"}' -H "Content-Type: application/json"
+curl --request GET http://127.0.0.1:8000/data -d '{"key": "slow_hello"}' -H "Content-Type: application/json"
+```
+
+To see the results, you can run:
+
+```bash
+uv run python -m line_profiler output/custom_usage.lprof --unit 1e-3
 ```
