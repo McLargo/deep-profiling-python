@@ -1,0 +1,12 @@
+[project]
+name = "poc-line-profiler"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+  {name = "Javier Gil", email = "javiergilmont@gmail.com"},
+]
+requires-python = ">=3.10"
+dependencies = [
+    "line-profiler>=4.2.0",
+]
