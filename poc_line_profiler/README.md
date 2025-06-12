@@ -60,7 +60,7 @@ poetry run kernprof -l -v -o ./output/custom_usage.lprof custom_usage/main.py
 ```
 
 Execute some curls to register/get some data. Profiling is implemented in
-`Inmemory.retrieve` and `Inmemory.store` methods. Both methods include delays to
+`InMemory.retrieve` and `InMemory.store` methods. Both methods include delays to
 simulate slow operations.
 
 ```bash
