@@ -5,12 +5,16 @@ profiling for Python code.
 
 ## What is profiling?
 
-Profiling is the process of measuring the performance of a service or certain
-parts of it. With profiling in place, you may find bottlenecks in your code,
-which code you can optimize to improve the performance of your service.
+Profiling is a process in software development to measure the performance of a
+service or certain parts of it. With profiling in place, you may find
+bottlenecks in your code and which code you can optimize to improve the
+performance of your service.
 
 ## Profiling tools
 
 There are few profiling tools available for Python. Some of them are:
 
-- [line_profiler](line_profiler/README)
+**Time-based profilers**:
+
+- [line_profiler](poc_line_profiler/README.md)
+- [timer](poc_timer/README.md)
