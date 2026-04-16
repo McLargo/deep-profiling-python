@@ -16,5 +16,9 @@ There are few profiling tools available for Python. Some of them are:
 
 **Time-based profilers**:
 
-- [line_profiler](poc_line_profiler/README.md)
 - [timer](poc_timer/README.md)
+
+**Deterministic profilers**:
+
+- [cProfile](poc_cprofile/README.md)
+- [line_profiler](poc_line_profiler/README.md)
