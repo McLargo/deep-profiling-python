@@ -22,3 +22,4 @@ There are few profiling tools available for Python. Some of them are:
 
 - [cProfile](poc_cprofile/README.md)
 - [line_profiler](poc_line_profiler/README.md)
+- [profyle](poc_profyle/README.md)
